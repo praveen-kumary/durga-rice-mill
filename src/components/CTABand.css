@@ -1,0 +1,93 @@
+/* ---- CTA Band Editorial Styling ---- */
+.cta-band-editorial {
+  position: relative;
+  background: radial-gradient(
+      120% 100% at 50% 0%,
+      rgba(212, 163, 83, 0.15) 0%,
+      transparent 70%
+    ),
+    linear-gradient(180deg, #0d1e15 0%, #08130e 100%);
+  padding: clamp(70px, 9vw, 110px) 0;
+  border-top: 1px solid var(--color-border-dark);
+  border-bottom: 1px solid var(--color-border-dark);
+  overflow: hidden;
+}
+
+.cta-glow-overlay {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(212, 163, 83, 0.2) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.cta-band-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-copy-col {
+  max-width: 650px;
+}
+
+.cta-headline {
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--color-text-dark-primary);
+  margin-top: 16px;
+}
+
+.cta-sub-text {
+  font-size: 1rem;
+  color: var(--color-text-dark-secondary);
+  line-height: 1.65;
+  margin-top: 16px;
+}
+
+.cta-actions-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .cta-band-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .cta-actions-col {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .cta-headline {
+    font-size: clamp(1.6rem, 5.5vw, 2rem);
+    margin-top: 10px;
+  }
+  .cta-sub-text {
+    font-size: 0.88rem;
+    margin-top: 12px;
+  }
+  .cta-actions-col {
+    flex-direction: column;
+  }
+  .cta-actions-col .btn-gold,
+  .cta-actions-col .btn-outline-gold {
+    width: 100%;
+    justify-content: center;
+  }
+}

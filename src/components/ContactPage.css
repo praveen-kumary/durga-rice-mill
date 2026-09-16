@@ -1,0 +1,590 @@
+/* ---- Contact Page Editorial & RFQ Calculator Styling ---- */
+
+/* Header */
+.contact-editorial-header {
+  padding: clamp(120px, 14vw, 160px) 0 clamp(40px, 6vw, 70px);
+}
+
+.contact-header-content {
+  max-width: 780px;
+}
+
+.contact-main-title {
+  font-size: clamp(2.6rem, 4.6vw, 4rem);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--color-text-dark-primary);
+  margin-top: 18px;
+}
+
+.contact-subtitle {
+  font-size: 1.05rem;
+  color: var(--color-text-dark-secondary);
+  line-height: 1.7;
+  margin-top: 20px;
+}
+
+/* Main Grid */
+.contact-main-body {
+  padding: clamp(40px, 6vw, 70px) 0 var(--section-pad);
+}
+
+.contact-main-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: flex-start;
+  gap: clamp(36px, 5vw, 64px);
+}
+
+/* Left Column */
+.contact-forms-col {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* 1. RFQ Calculator Card */
+.rfq-calculator-card {
+  background: #ffffff;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+
+.calc-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-border-light);
+  margin-bottom: 24px;
+}
+
+.calc-icon {
+  color: #8c6a28;
+  margin-top: 2px;
+}
+
+.calc-title {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-text-light-primary);
+}
+
+.calc-desc {
+  font-size: 0.82rem;
+  color: var(--color-text-light-secondary);
+  margin-top: 2px;
+}
+
+.calc-body-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.calc-field label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-light-secondary);
+  margin-bottom: 8px;
+}
+
+.calc-select {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-light);
+  background: #fbf9f4;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--color-text-light-primary);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.calc-select:focus {
+  border-color: #8c6a28;
+}
+
+.bag-size-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.bag-btn {
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-light);
+  background: #fbf9f4;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-text-light-secondary);
+  transition: all 0.2s ease;
+}
+
+.bag-btn:hover {
+  border-color: #8c6a28;
+  color: #8c6a28;
+}
+
+.bag-btn.active {
+  background: #8c6a28;
+  color: #ffffff;
+  border-color: #8c6a28;
+  font-weight: 600;
+}
+
+.tonnage-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.tonnage-val-pill {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #8c6a28;
+  background: rgba(140, 106, 40, 0.1);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+}
+
+.tonnage-slider {
+  width: 100%;
+  accent-color: #8c6a28;
+  cursor: pointer;
+  height: 6px;
+}
+
+.quick-tonnage-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.quick-tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: #f4efe4;
+  border: 1px solid var(--color-border-light);
+  color: var(--color-text-light-secondary);
+  transition: all 0.2s ease;
+}
+
+.quick-tag.active {
+  background: #8c6a28;
+  color: #ffffff;
+  border-color: #8c6a28;
+}
+
+/* Output Strip */
+.calc-output-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  background: #fbf9f4;
+  border: 1px solid var(--color-border-light);
+  padding: 20px;
+  border-radius: var(--radius-sm);
+  margin-top: 24px;
+}
+
+.calc-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.calc-stat-val {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #8c6a28;
+  line-height: 1;
+}
+
+.calc-stat-lbl {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-light-secondary);
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+
+
+/* 2. Inquiry Form Card */
+.inquiry-form-card {
+  background: #ffffff;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius);
+  padding: 36px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+
+.rfq-form-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--color-text-light-primary);
+}
+
+.rfq-form-desc {
+  font-size: 0.88rem;
+  color: var(--color-text-light-secondary);
+  margin-top: 6px;
+  margin-bottom: 24px;
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-light-secondary);
+  margin-bottom: 6px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-light);
+  background: #fbf9f4;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: var(--color-text-light-primary);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.form-input:focus {
+  border-color: #8c6a28;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(140, 106, 40, 0.1);
+}
+
+.form-submit-btn {
+  width: 100%;
+  padding: 16px;
+  margin-top: 10px;
+}
+
+/* Success State */
+.form-success-state {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.success-icon {
+  color: #3ba76a;
+  margin-bottom: 20px;
+}
+
+.form-success-state h2 {
+  font-size: 2rem;
+  color: var(--color-text-light-primary);
+}
+
+.form-success-state p {
+  font-size: 0.95rem;
+  color: var(--color-text-light-secondary);
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 14px auto 0;
+}
+
+
+
+.success-sub {
+  font-size: 0.85rem !important;
+  color: #8c6a28 !important;
+}
+
+/* 3. Freight Transit Time Table */
+.transit-schedule-card {
+  background: #ffffff;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius);
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.transit-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.transit-header h4 {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text-light-primary);
+}
+
+.transit-header p {
+  font-size: 0.8rem;
+  color: var(--color-text-light-secondary);
+  margin-top: 2px;
+}
+
+.transit-table-wrap {
+  overflow-x: auto;
+}
+
+.transit-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.transit-table th,
+.transit-table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.transit-table th {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-light-secondary);
+  background: #fbf9f4;
+  font-weight: 600;
+}
+
+.transit-table td {
+  color: var(--color-text-light-primary);
+}
+
+.transit-badge {
+  display: inline-block;
+  background: rgba(140, 106, 40, 0.1);
+  color: #8c6a28;
+  font-weight: 600;
+  font-size: 0.78rem;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+/* Right Column: Plant Credentials */
+.contact-details-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.plant-credential-card {
+  background: var(--color-surface-dark);
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius);
+  padding: 36px;
+  color: var(--color-text-dark-secondary);
+}
+
+.plant-credential-card .cred-card-heading,
+.plant-credential-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #f7f5ed !important;
+}
+
+.cred-card-sub {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-gold);
+  margin-top: 4px;
+  margin-bottom: 28px;
+}
+
+.cred-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--color-border-dark-subtle);
+}
+
+.cred-item:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.cred-icon {
+  color: var(--color-gold);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.cred-item strong {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--color-text-dark-primary);
+}
+
+.cred-role {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 2px;
+}
+
+.cred-item p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin-top: 4px;
+}
+
+.highway-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  color: #3ba76a;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.cred-link {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  margin-top: 4px;
+  transition: color 0.2s ease;
+}
+
+.cred-link:hover {
+  color: #fff;
+}
+
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #128c7e;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-top: 8px;
+  transition: all 0.2s ease;
+}
+
+.whatsapp-btn:hover {
+  background: #075e54;
+  transform: translateY(-2px);
+}
+
+.regulatory-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border-dark-subtle);
+}
+
+.reg-pill {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-dark);
+  color: var(--color-text-dark-secondary);
+}
+
+/* Map Frame */
+.contact-map-frame {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--color-border-dark);
+  height: 260px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.map-iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(0.2) contrast(1.05);
+}
+
+/* Mobile & Tablet Responsiveness */
+@media (max-width: 1040px) {
+  .contact-main-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .form-row-2 {
+    grid-template-columns: 1fr;
+  }
+  .calc-output-strip {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .rfq-calculator-card,
+  .inquiry-form-card,
+  .plant-credential-card,
+  .transit-schedule-card {
+    padding: 20px;
+  }
+  .bag-size-buttons {
+    flex-direction: column;
+  }
+  .quick-tonnage-tags {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .contact-hero-title {
+    font-size: clamp(1.8rem, 6vw, 2.4rem);
+  }
+  .rfq-form-title {
+    font-size: 1.3rem;
+  }
+  .transit-table th,
+  .transit-table td {
+    font-size: 0.78rem;
+    padding: 10px 8px;
+  }
+}

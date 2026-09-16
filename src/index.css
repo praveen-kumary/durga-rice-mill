@@ -1,0 +1,457 @@
+:root {
+  /* Typography — Premium High-Contrast Editorial Display & Clean Sans */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Deep Harvest Palette — Dark Mode & Dark Sections */
+  --color-bg-dark: #0d1e15;
+  --color-surface-dark: #142a1f;
+  --color-surface-dark-2: #1a3528;
+  --color-border-dark: rgba(201, 152, 70, 0.22);
+  --color-border-dark-subtle: rgba(255, 255, 255, 0.08);
+  --color-text-dark-primary: #f7f5ed;
+  --color-text-dark-secondary: #9cb1a3;
+  --color-gold: #d4a353;
+  --color-gold-light: #f0d499;
+  --color-gold-muted: rgba(212, 163, 83, 0.15);
+  --color-gold-glow: rgba(212, 163, 83, 0.28);
+  --color-leaf: #3ba76a;
+
+  /* Warm Harvest Palette — Light Sections */
+  --color-bg-light: #fbf9f4;
+  --color-surface-light: #ffffff;
+  --color-surface-light-warm: #f4efe4;
+  --color-border-light: #e5dfd3;
+  --color-text-light-primary: #16241a;
+  --color-text-light-secondary: #586b5f;
+
+  /* Global defaults */
+  --color-bg: var(--color-bg-dark);
+  --color-text: var(--color-text-dark-primary);
+  --color-accent: var(--color-gold);
+
+  /* Spacing & Layout */
+  --section-pad: clamp(70px, 8vw, 130px);
+  --container-max: 1200px;
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-lg: 14px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-deep: 0 24px 60px -20px rgba(0, 0, 0, 0.6);
+  --shadow-gold: 0 0 0 1px rgba(212, 163, 83, 0.3), 0 16px 40px -15px rgba(212, 163, 83, 0.4);
+  --shadow-subtle: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Lenis Butter-Smooth Scrolling Integration */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Section scroll offset so fixed navbar doesn't cover headings */
+section, [id] {
+  scroll-margin-top: 84px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-bg-dark);
+  color: var(--color-text-dark-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.65;
+  overflow-x: hidden;
+  font-size: 15px;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: #0d1e15;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-sans);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 36px);
+}
+
+/* ==========================================================================
+   Editorial Utility Classes
+   ========================================================================== */
+
+/* Section Label with Gold Hairline */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--color-gold);
+}
+
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: var(--color-gold);
+  opacity: 0.8;
+}
+
+.section-label.light {
+  color: #8c6a28;
+}
+.section-label.light::before {
+  background: #8c6a28;
+}
+
+/* Fading Gold Hairline Divider */
+.hairline {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(212, 163, 83, 0.45) 50%,
+    transparent 100%
+  );
+  margin: 28px 0;
+}
+
+.hairline-solid {
+  width: 100%;
+  height: 1px;
+  background: var(--color-border-dark);
+}
+
+/* Gold Shimmer Text */
+.text-gold {
+  color: var(--color-gold);
+}
+
+.text-gold-italic {
+  font-style: italic;
+  font-family: var(--font-display);
+  color: var(--color-gold-light);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(110deg, #f7e6b8 0%, #d4a353 50%, #7bc143 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Section Themes for Alternating Rhythm */
+.dark-section {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark-secondary);
+  border-top: 1px solid var(--color-border-dark-subtle);
+  border-bottom: 1px solid var(--color-border-dark-subtle);
+}
+
+.dark-section h1,
+.dark-section h2,
+.dark-section h3 {
+  color: var(--color-text-dark-primary);
+}
+
+.light-section {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light-secondary);
+  border-top: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.light-section h1,
+.light-section h2,
+.light-section h3 {
+  color: var(--color-text-light-primary);
+}
+
+/* Button Variants */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--color-gold);
+  color: #0d1e15;
+  padding: 13px 28px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  background: #deb266;
+  box-shadow: 0 0 0 1px rgba(212, 163, 83, 0.4), 0 20px 45px -12px rgba(212, 163, 83, 0.55);
+}
+
+.btn-outline-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid rgba(212, 163, 83, 0.4);
+  color: var(--color-gold);
+  padding: 12px 26px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  background: transparent;
+}
+
+.btn-outline-gold:hover {
+  background: rgba(212, 163, 83, 0.12);
+  border-color: var(--color-gold);
+  color: #fff;
+}
+
+.btn-dark-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-surface-dark);
+  color: var(--color-text-dark-primary);
+  border: 1px solid var(--color-border-dark);
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.btn-dark-pill:hover {
+  background: var(--color-surface-dark-2);
+  border-color: var(--color-gold);
+}
+
+/* Badge Pill */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border: 1px solid rgba(212, 163, 83, 0.3);
+  color: var(--color-gold);
+  background: rgba(212, 163, 83, 0.06);
+}
+
+/* Card 1px Border Grid helper */
+.border-grid {
+  display: grid;
+  gap: 1px;
+  background: var(--color-border-dark);
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border-dark);
+}
+
+.border-grid-light {
+  display: grid;
+  gap: 1px;
+  background: var(--color-border-light);
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border-light);
+}
+
+/* Subtle Grain Overlay */
+.grain-overlay {
+  position: relative;
+}
+
+.grain-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: radial-gradient(currentColor 0.7px, transparent 0.8px);
+  background-size: 6px 6px;
+}
+
+/* Smooth Page Fade */
+.page-view {
+  animation: pageIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Micro-Animations & Tactile Interactions */
+button:active,
+.btn-gold:active,
+.btn-outline-gold:active,
+.btn-dark-pill:active {
+  transform: scale(0.97);
+  transition: transform 0.1s ease;
+}
+
+/* Subtle Shimmer on Premium Gold Highlights */
+@keyframes goldShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.shimmer-gold {
+  background: linear-gradient(
+    90deg,
+    var(--color-gold) 0%,
+    var(--color-gold-light) 50%,
+    var(--color-gold) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 4s linear infinite;
+}
+
+/* Pulse Dot Animation for Live Facilities & WhatsApp */
+@keyframes statusPulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(74, 222, 128, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: #243f30;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* Mobile Global Tightening */
+@media (max-width: 768px) {
+  :root {
+    --section-pad: clamp(48px, 7vw, 70px);
+  }
+
+  h1 {
+    line-height: 1.12;
+  }
+
+  h2 {
+    line-height: 1.18;
+  }
+
+  .btn-gold {
+    padding: 11px 22px;
+    font-size: 0.82rem;
+  }
+
+  .btn-outline-gold {
+    padding: 10px 20px;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 420px) {
+  :root {
+    --section-pad: clamp(36px, 6vw, 56px);
+  }
+}

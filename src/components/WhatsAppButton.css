@@ -1,0 +1,204 @@
+/* Floating WhatsApp Button Component Styles */
+
+.whatsapp-float-wrapper {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 990;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 12px;
+  pointer-events: auto;
+}
+
+/* 1. Main Circular Floating Button */
+.whatsapp-float-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2fe576 0%, #20b055 50%, #158a40 100%);
+  color: #ffffff;
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.45),
+              0 2px 6px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.whatsapp-float-btn:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 14px 34px rgba(37, 211, 102, 0.55),
+              0 4px 10px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+}
+
+.whatsapp-float-btn:active {
+  transform: scale(0.96);
+}
+
+/* 2. Concentric Pulse Glow Animation Rings */
+.whatsapp-pulse-ring,
+.whatsapp-pulse-ring-delayed {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(37, 211, 102, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  animation: waPulseRing 2.6s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
+
+.whatsapp-pulse-ring-delayed {
+  animation-delay: 1.3s;
+}
+
+@keyframes waPulseRing {
+  0% {
+    transform: scale(0.88);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* 3. Icon */
+.whatsapp-icon {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-float-btn:hover .whatsapp-icon {
+  transform: scale(1.05);
+}
+
+/* 4. Glowing Online Status Beacon */
+.whatsapp-online-dot {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 14px;
+  height: 14px;
+  background: #ffffff;
+  border-radius: 50%;
+  border: 2px solid #1ba64d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+.whatsapp-online-dot::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: #10d859;
+  border-radius: 50%;
+  animation: waDotPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes waDotPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.7;
+  }
+}
+
+/* 5. Tooltip Pill */
+.whatsapp-tooltip {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(13, 30, 21, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 163, 83, 0.28);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  padding: 8px 16px;
+  border-radius: 20px;
+  opacity: 0;
+  transform: translateX(10px) scale(0.95);
+  pointer-events: none;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.whatsapp-tooltip.visible {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.tooltip-title {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #f7f5ed;
+  line-height: 1.25;
+}
+
+.tooltip-sub {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: #a3d9b6;
+  line-height: 1.25;
+  margin-top: 2px;
+}
+
+/* Responsive Rules */
+@media (max-width: 768px) {
+  .whatsapp-float-wrapper {
+    bottom: 18px;
+    right: 14px;
+  }
+
+  .whatsapp-float-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .whatsapp-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .whatsapp-online-dot {
+    width: 12px;
+    height: 12px;
+  }
+
+  .whatsapp-online-dot::after {
+    width: 5px;
+    height: 5px;
+  }
+
+  /* Hide floating tooltip on touch devices to prevent obscuring content */
+  .whatsapp-tooltip {
+    display: none;
+  }
+
+  /* Shrink pulse rings to match smaller button */
+  .whatsapp-pulse-ring,
+  .whatsapp-pulse-ring-delayed {
+    inset: -4px;
+  }
+}
