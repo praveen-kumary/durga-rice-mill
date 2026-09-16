@@ -1,0 +1,15 @@
+# robots.txt for Durga Rice Mill (https://durgaricemill.com)
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# Googlebot & Bingbot specific settings
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap reference
+Sitemap: https://durgaricemill.com/sitemap.xml
