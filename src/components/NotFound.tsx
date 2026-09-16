@@ -1,4 +1,4 @@
-import { Home, Package, PhoneCall, Search, ShieldCheck } from 'lucide-react';
+import { Home, Package, PhoneCall } from 'lucide-react';
 import './NotFound.css';
 
 interface NotFoundProps {
@@ -8,36 +8,27 @@ interface NotFoundProps {
 
 export default function NotFound({ onNavigate, attemptedRoute }: NotFoundProps) {
   return (
-    <div className="notfound-container dark-section" role="region" aria-label="404 Page Not Found">
-      <div className="notfound-bg-glow" aria-hidden="true" />
-      <div className="notfound-grain-pattern" aria-hidden="true" />
-
-      <div className="container notfound-content">
-        {/* Visual Badge */}
+    <section className="notfound-section dark-section" role="region" aria-label="404 Page Not Found">
+      <div className="container notfound-box">
+        {/* Simple Pill Badge */}
         <div className="notfound-badge">
-          <span className="notfound-badge-dot" />
-          <span>Error 404 &bull; Missing Route</span>
+          <span className="notfound-dot" />
+          <span>404 Error</span>
         </div>
 
-        {/* Big Stylized Number */}
-        <div className="notfound-number-wrap">
-          <span className="notfound-big-num">404</span>
-          <div className="notfound-icon-orbit" aria-hidden="true">
-            <Package size={28} className="notfound-floating-icon" />
-          </div>
-        </div>
-
-        {/* Headings */}
+        {/* Clean, well-proportioned title */}
         <h1 className="notfound-title">
-          Grain Not Found <span className="text-gold">in the Silo</span>
+          Page Not Found
         </h1>
-        <p className="notfound-desc">
-          The page or variety specification you requested
-          {attemptedRoute ? <code className="notfound-route-tag"> &ldquo;{attemptedRoute}&rdquo; </code> : ' '}
-          could not be found in our current catalog. It may have been relocated, renamed, or temporarily unavailable.
+
+        {/* Short, direct explanation */}
+        <p className="notfound-text">
+          The page or rice variety you are looking for
+          {attemptedRoute ? <strong> &ldquo;{attemptedRoute}&rdquo; </strong> : ' '}
+          doesn&rsquo;t exist or may have been moved.
         </p>
 
-        {/* Primary Action Buttons */}
+        {/* Two clean, balanced buttons */}
         <div className="notfound-actions">
           <button
             type="button"
@@ -45,7 +36,7 @@ export default function NotFound({ onNavigate, attemptedRoute }: NotFoundProps) 
             onClick={() => onNavigate('home')}
             id="notfound-btn-home"
           >
-            <Home size={16} />
+            <Home size={15} />
             <span>Return to Home</span>
           </button>
 
@@ -55,72 +46,24 @@ export default function NotFound({ onNavigate, attemptedRoute }: NotFoundProps) 
             onClick={() => onNavigate('products')}
             id="notfound-btn-products"
           >
-            <Package size={16} />
+            <Package size={15} />
             <span>Browse All 7 Varieties</span>
           </button>
+        </div>
 
+        {/* Understated help link */}
+        <div className="notfound-help-row">
+          <span>Need bulk booking or mandi pricing?</span>
           <button
             type="button"
-            className="notfound-btn-ghost"
+            className="notfound-contact-link"
             onClick={() => onNavigate('contact')}
-            id="notfound-btn-contact"
           >
-            <PhoneCall size={15} />
-            <span>Contact Desk</span>
+            <PhoneCall size={13} />
+            <span>Contact Mill Desk</span>
           </button>
         </div>
-
-        {/* Quick Discovery Directory */}
-        <div className="notfound-quick-directory">
-          <div className="directory-header">
-            <Search size={14} className="text-gold" />
-            <span>Or explore our popular milling varieties directly:</span>
-          </div>
-          <div className="directory-chips">
-            <button
-              type="button"
-              className="dir-chip"
-              onClick={() => onNavigate('product', 'white-and-white-gold')}
-            >
-              White &amp; White Gold (26kg)
-            </button>
-            <button
-              type="button"
-              className="dir-chip"
-              onClick={() => onNavigate('product', 'lazeez-kolam-green')}
-            >
-              Lazeez Biryani Green (30kg)
-            </button>
-            <button
-              type="button"
-              className="dir-chip"
-              onClick={() => onNavigate('product', 'ragul-bullet-colom')}
-            >
-              Ragul Bullet Marriage Special
-            </button>
-            <button
-              type="button"
-              className="dir-chip"
-              onClick={() => onNavigate('product', 'meri-jaan-jeera')}
-            >
-              Meri Jaan Jeera Rice
-            </button>
-            <button
-              type="button"
-              className="dir-chip"
-              onClick={() => onNavigate('about')}
-            >
-              About Our Mill (Est. 2005)
-            </button>
-          </div>
-        </div>
-
-        {/* Trust Footnote */}
-        <div className="notfound-footer-note">
-          <ShieldCheck size={14} className="text-gold" />
-          <span>Durga Rice Mill &bull; Village Aroli, Mouda, Nagpur &bull; FSSAI Lic. 11517056000660</span>
-        </div>
       </div>
-    </div>
+    </section>
   );
 }

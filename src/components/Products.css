@@ -342,11 +342,11 @@
 }
 
 .catalog-title {
-  font-size: clamp(2.6rem, 4.6vw, 4rem);
-  font-weight: 300;
-  line-height: 1.05;
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-weight: 400;
+  line-height: 1.15;
   color: var(--color-text-dark-primary);
-  margin-top: 18px;
+  margin-top: 14px;
 }
 
 .catalog-subtitle {
@@ -668,9 +668,9 @@
 }
 
 .detail-title {
-  font-size: clamp(2.4rem, 4vw, 3.4rem);
-  font-weight: 300;
-  line-height: 1.08;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.15;
   color: var(--color-text-light-primary);
 }
 
