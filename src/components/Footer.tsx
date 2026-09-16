@@ -59,7 +59,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           {/* Brand Column */}
           <div className="footer-brand-col">
             <div className="footer-logo-row" onClick={() => nav('home')}>
-              <img src="/assets/durga-logo.png" alt="Durga Rice Mill" className="footer-logo-img" />
+              <img src="/assets/durga-logo.webp" alt="Durga Rice Mill" className="footer-logo-img" />
               <div className="footer-logo-text">
                 <span className="brand-title">Durga</span>
                 <span className="brand-gold">Rice Mill</span>

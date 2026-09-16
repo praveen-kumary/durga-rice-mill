@@ -283,7 +283,7 @@ export function ProductDetail({
 
   const galleryImages = product.images && product.images.length > 0
     ? product.images
-    : [product.image, '/assets/grain-macro.jpg', '/assets/hero-bags.jpg', '/assets/milling.jpg'];
+    : [product.image, '/assets/grain-macro.webp', '/assets/hero-bags.webp', '/assets/milling.webp'];
 
   const related = products.filter((p) => p.id !== productId).slice(0, 3);
 

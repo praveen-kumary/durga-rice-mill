@@ -18,20 +18,20 @@ interface BannerSlide {
 const bannerSlides: BannerSlide[] = [
   {
     id: 'brands',
-    desktopImage: '/assets/banners/desktop/1.png',
-    mobileImage: '/assets/banners/mobile/1.png',
+    desktopImage: '/assets/banners/desktop/1.webp',
+    mobileImage: '/assets/banners/mobile/1.webp',
     alt: 'Durga Rice Mill branded wholesale rice bags lineup including Lazeez, White & White, and Ragul Bullet in front of the Mouda processing facility',
   },
   {
     id: 'mill',
-    desktopImage: '/assets/banners/desktop/2.png',
-    mobileImage: '/assets/banners/mobile/2.png',
+    desktopImage: '/assets/banners/desktop/2.webp',
+    mobileImage: '/assets/banners/mobile/2.webp',
     alt: 'Durga Rice Mill modern industrial processing plant with tall storage silos, harvest bowls, and lush green paddy fields',
   },
   {
     id: 'harvest',
-    desktopImage: '/assets/banners/desktop/3.png',
-    mobileImage: '/assets/banners/mobile/3.png',
+    desktopImage: '/assets/banners/desktop/3.webp',
+    mobileImage: '/assets/banners/mobile/3.webp',
     alt: 'Golden paddy harvest along Wainganga basin with raw grain sacks, steaming cooked rice, and Durga Rice Mill processing facility',
   },
 ];

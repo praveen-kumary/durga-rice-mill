@@ -51,7 +51,7 @@ export default function ProcessStrip() {
 
           <div className="process-img-frame grain-overlay">
             <img
-              src="/assets/milling.jpg"
+              src="/assets/milling.webp"
               alt="Milling line inside Durga Rice Mill"
               className="process-mill-img"
             />

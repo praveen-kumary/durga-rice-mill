@@ -69,11 +69,11 @@ export const products: Product[] = [
       'Packed and marketed by Durga Rice Mill (Aroli, Mouda, Nagpur), White & White Gold Edition features carefully sorted Lachkari Wada Kolam rice. Milled to pearl-white brilliance with Buhler sortex technology, this 26kg commercial sack provides fluffy, fragrant, non-sticky cooked grains. Taglined "Pride of Every Kitchen", "Smile when you Eat", and "Affordable Price", it is the benchmark choice for family dining, corporate cafeterias, and high-end catering across Maharashtra and Central India.',
     mrp: '₹2,080 / bag',
     unitPrice: '₹80 / kg',
-    image: '/assets/bags/white-white-gold-pack.png',
+    image: '/assets/bags/white-white-gold-pack.webp',
     images: [
-      '/assets/bags/white-white-gold-pack.png',
-      '/assets/bags/white-white-gold-lifestyle.png',
-      '/assets/bags/white-white-gold-back.png',
+      '/assets/bags/white-white-gold-pack.webp',
+      '/assets/bags/white-white-gold-lifestyle.webp',
+      '/assets/bags/white-white-gold-back.webp',
     ],
     specs: {
       packaging: '26 kg Heavy-Duty Woven Sack (Gold Floral)',
@@ -134,11 +134,11 @@ export const products: Product[] = [
       'Packed in a vibrant ruby-floral BOPP sack by Durga Rice Mill, this premium sorted Lachkari Wada Kolam delivers a delicate aroma, tender bite, and consistent cooking quality. Every grain undergoes multi-pass de-husking, de-stoning, and optical color sorting to ensure spotless grains with uniform length and zero black kernels.',
     mrp: '₹2,080 / bag',
     unitPrice: '₹80 / kg',
-    image: '/assets/bags/white-white-ruby-pack.png',
+    image: '/assets/bags/white-white-ruby-pack.webp',
     images: [
-      '/assets/bags/white-white-ruby-pack.png',
-      '/assets/bags/white-white-ruby-lifestyle.png',
-      '/assets/bags/white-white-ruby-back.png',
+      '/assets/bags/white-white-ruby-pack.webp',
+      '/assets/bags/white-white-ruby-lifestyle.webp',
+      '/assets/bags/white-white-ruby-back.webp',
     ],
     specs: {
       packaging: '26 kg Woven Polypropylene Sack (Ruby Floral)',
@@ -199,11 +199,11 @@ export const products: Product[] = [
       'The crown grade of the White & White portfolio. Sourced from choice paddy crops in the Vidarbha basin, this Basmati Type Grain edition has a longer raw grain profile that elongates past 13.8mm when cooked, while retaining the sweet, easy-to-digest characteristics of authentic Wada Kolam. Finished in an elegant emerald-green floral bag with certified Durga Rice Mill back labeling.',
     mrp: '₹2,080 / bag',
     unitPrice: '₹80 / kg',
-    image: '/assets/bags/white-white-emerald-pack.png',
+    image: '/assets/bags/white-white-emerald-pack.webp',
     images: [
-      '/assets/bags/white-white-emerald-pack.png',
-      '/assets/bags/white-white-emerald-lifestyle.png',
-      '/assets/bags/white-white-emerald-back.png',
+      '/assets/bags/white-white-emerald-pack.webp',
+      '/assets/bags/white-white-emerald-lifestyle.webp',
+      '/assets/bags/white-white-emerald-back.webp',
     ],
     specs: {
       packaging: '26 kg Woven Polypropylene Sack (Emerald Green Floral)',
@@ -264,10 +264,10 @@ export const products: Product[] = [
       'Lazeez Premium JSR Lachkari Wada Kolam is crafted specifically for master biryani chefs and commercial caterers who demand slim, non-sticky grains that absorb rich masala gravies without breaking. Prominently labeled "No.1 Slim Rice" and "Special Biryani Rice", this 30kg sack is naturally aged, double-cleaned, and processed through our modern automated milling plant in Mouda, Nagpur. Slogan: "Grown with Care, Served with Love".',
     mrp: 'Wholesale B2B Rate',
     unitPrice: 'Contract Quotation',
-    image: '/assets/bags/lazeez-green-pack.png',
+    image: '/assets/bags/lazeez-green-pack.webp',
     images: [
-      '/assets/bags/lazeez-green-pack.png',
-      '/assets/bags/lazeez-green-lifestyle.png',
+      '/assets/bags/lazeez-green-pack.webp',
+      '/assets/bags/lazeez-green-lifestyle.webp',
     ],
     specs: {
       packaging: '30 kg Heavy-Duty Moisture-Barrier Sack (Emerald Green Border)',
@@ -323,10 +323,10 @@ export const products: Product[] = [
       'The royal gold edition of Lazeez JSR Lachkari Wada Kolam. Selected from premier paddy harvests in the Wainganga river belt, this grain delivers rich natural aroma, certified 2.34x post-cooking elongation, and tender cooked texture. Ideal for signature dum biryanis, royal pilafs, and celebratory banquets where grain separation and steam fragrance are paramount.',
     mrp: 'Wholesale B2B Rate',
     unitPrice: 'Contract Quotation',
-    image: '/assets/bags/lazeez-gold-pack.png',
+    image: '/assets/bags/lazeez-gold-pack.webp',
     images: [
-      '/assets/bags/lazeez-gold-pack.png',
-      '/assets/bags/lazeez-gold-lifestyle.png',
+      '/assets/bags/lazeez-gold-pack.webp',
+      '/assets/bags/lazeez-gold-lifestyle.webp',
     ],
     specs: {
       packaging: '30 kg Premium BOPP Laminated Sack (Gold Border)',
@@ -382,11 +382,11 @@ export const products: Product[] = [
       'Ragul Bullet is celebrated across South India and Maharashtra as "Bangalore\'s First Choice" for marriage banquets and high-volume catering. Featuring Buhler optical color sorting, hygienic packaging, and APEDA membership certification, this 26kg bag delivers guaranteed grain integrity, rich natural taste, and impressive cooked volume yield. Packed and marketed by Durga Rice Mill, Mouda, Nagpur.',
     mrp: '₹1,950 / bag',
     unitPrice: '₹75 / kg',
-    image: '/assets/bags/ragul-bullet-pack.png',
+    image: '/assets/bags/ragul-bullet-pack.webp',
     images: [
-      '/assets/bags/ragul-bullet-pack.png',
-      '/assets/bags/ragul-bullet-lifestyle.png',
-      '/assets/grain-macro.jpg',
+      '/assets/bags/ragul-bullet-pack.webp',
+      '/assets/bags/ragul-bullet-lifestyle.webp',
+      '/assets/grain-macro.webp',
     ],
     specs: {
       packaging: '26 kg Hygienically Packed Heavy-Duty Sack (Bullet Motorcycle Edition)',
@@ -444,11 +444,11 @@ export const products: Product[] = [
       'Meri Jaan brings the true aromatic warmth of vintage Jeera Rice to commercial kitchens and discerning households. Taglined "Finest grain, Serve with pure Love", this 26kg bag features short, delicate, naturally seasoned grains that release a subtle natural perfume when cooked. Double cleaned and sortex graded by Durga Rice Mill to ensure uniform size, high starch balance, and melt-in-mouth texture.',
     mrp: 'Wholesale B2B Rate',
     unitPrice: 'Contract Quotation',
-    image: '/assets/bags/meri-jaan-pack.jpeg',
+    image: '/assets/bags/meri-jaan-pack.webp',
     images: [
-      '/assets/bags/meri-jaan-pack.jpeg',
-      '/assets/bags/meri-jaan-lifestyle.png',
-      '/assets/grain-macro.jpg',
+      '/assets/bags/meri-jaan-pack.webp',
+      '/assets/bags/meri-jaan-lifestyle.webp',
+      '/assets/grain-macro.webp',
     ],
     specs: {
       packaging: '26 kg Heavy-Duty Sack (Vintage Pastoral & Heart Emblem)',

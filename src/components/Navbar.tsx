@@ -42,7 +42,7 @@ export default function Navbar({
       <header className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
         <div className="container navbar-inner">
           <div className="navbar-logo" onClick={() => navigate('home')}>
-            <img src="/assets/durga-logo.png" alt="Durga Rice Mill" />
+            <img src="/assets/durga-logo.webp" alt="Durga Rice Mill" />
             <div className="navbar-brand-text">
               <span className="brand-main">Durga</span>
               <span className="brand-sub">Rice Mill</span>
@@ -100,7 +100,7 @@ export default function Navbar({
       <div className={`mobile-drawer ${mobileOpen ? 'open' : ''}`}>
         <div className="mobile-drawer-top">
           <div className="navbar-logo" onClick={() => navigate('home')}>
-            <img src="/assets/durga-logo.png" alt="Durga Rice Mill" />
+            <img src="/assets/durga-logo.webp" alt="Durga Rice Mill" />
             <div className="navbar-brand-text">
               <span className="brand-main">Durga</span>
               <span className="brand-sub">Rice Mill</span>
