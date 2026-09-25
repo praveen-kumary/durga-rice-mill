@@ -49,6 +49,15 @@
   display: block;
 }
 
+/* Tailored framing per slide on desktop so bags and silos are never cut off */
+.hero-bg-slide[data-slide="brands"] .hero-bg-img {
+  object-position: center 74%;
+}
+
+.hero-bg-slide[data-slide="mill"] .hero-bg-img {
+  object-position: center bottom;
+}
+
 /* 2. Overlays & Lighting — Minimal gradient for vibrant, luminous display */
 .hero-overlay-gradient {
   position: absolute;
@@ -416,9 +425,39 @@
     justify-content: flex-end; /* Anchored at bottom to keep imagery fully visible */
   }
 
-  /* Balanced framing so bags lineup, mill silos, and fields are naturally visible and centered */
-  .hero-bg-img {
-    object-position: center 30%;
+  /* Tailored mobile framing: bags lineup is completely uncropped with ambient backdrop */
+  .hero-bg-slide[data-slide="brands"] {
+    background: #0d1e15;
+  }
+
+  .hero-bg-slide[data-slide="brands"]::before {
+    content: '';
+    position: absolute;
+    inset: -15px;
+    background: url('/assets/banners/mobile/durga-rice-mill-wholesale-rice-bags-lineup-mobile.webp') center 28% / cover no-repeat;
+    filter: blur(16px);
+    opacity: 0.52;
+    transform: scale(1.08);
+  }
+
+  .hero-bg-slide[data-slide="brands"] .hero-bg-picture {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-bg-slide[data-slide="brands"] .hero-bg-img {
+    object-fit: contain;
+    object-position: center 22%;
+    filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.6));
+  }
+
+  /* Slide 2: Mill processing silos and steaming cooked rice bowl */
+  .hero-bg-slide[data-slide="mill"] .hero-bg-img {
+    object-fit: cover;
+    object-position: center 42%;
   }
 
   /* Transparent mid-section so imagery is sharp & vivid; dark gradient only at bottom */

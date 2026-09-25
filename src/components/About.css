@@ -422,8 +422,9 @@
 }
 
 @media (max-width: 600px) {
+  /* Increase 2005 Mouda milling complex image height on mobile by 30% */
   .about-snippet-img {
-    height: clamp(260px, 58vw, 360px);
+    height: clamp(345px, 78vw, 470px);
   }
   .about-snippet-title {
     font-size: clamp(1.8rem, 6vw, 2.4rem);

@@ -1026,14 +1026,36 @@
     margin-bottom: 28px;
   }
 
+  /* Products preview title */
   .products-preview-title {
     font-size: clamp(1.8rem, 6vw, 2.4rem);
     margin-top: 8px;
   }
 
-  /* Reduce card thumbnail height on mobile for faster scanning */
+  /* Increase bag sizes by +30% on mobile (height & width presence) */
   .card-thumb-wrap {
-    height: clamp(260px, 58vw, 340px);
+    height: clamp(345px, 80vw, 460px);
+    padding: 2px;
+  }
+
+  .card-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: scale(1.06);
+    filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.52));
+  }
+
+  .detail-main-image-frame {
+    height: clamp(380px, 78vw, 480px);
+  }
+
+  .detail-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: scale(1.06);
+    padding: 4px;
   }
 
   /* Products preview footer button — smaller and centered */
@@ -1098,8 +1120,12 @@
   .grain-feat-card .feat-lbl {
     margin-top: 0;
   }
+  /* 30% boosted bag size on compact mobile */
+  .card-thumb-wrap {
+    height: 350px;
+  }
   .detail-main-image-frame {
-    height: 280px;
+    height: 365px;
   }
 }
 

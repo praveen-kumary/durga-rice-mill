@@ -28,12 +28,6 @@ const bannerSlides: BannerSlide[] = [
     mobileImage: '/assets/banners/mobile/durga-rice-mill-processing-plant-paddy-harvest-mobile.webp',
     alt: 'Durga Rice Mill high-capacity grain processing silos, freshly harvested paddy sacks, and steamed fragrant white rice',
   },
-  {
-    id: 'harvest',
-    desktopImage: '/assets/banners/desktop/durga-rice-mill-golden-paddy-harvest-basin.webp',
-    mobileImage: '/assets/banners/mobile/durga-rice-mill-golden-paddy-harvest-basin-mobile.webp',
-    alt: 'Golden paddy harvest fields along Wainganga river basin with authentic rice milling operations in Mouda, Nagpur',
-  },
 ];
 
 const popularVarieties = [
@@ -120,6 +114,7 @@ export default function Hero({ onExploreProducts, onContact, onProductClick }: H
         {bannerSlides.map((slide, index) => (
           <div
             key={slide.id}
+            data-slide={slide.id}
             className={`hero-bg-slide ${index === currentSlide ? 'active' : ''}`}
             aria-hidden={index !== currentSlide}
           >
