@@ -12,7 +12,7 @@ export function AboutSnippet({ onLearnMore }: AboutSnippetProps) {
       <div className="container about-grid">
         <div className="about-image-frame grain-overlay">
           <img
-            src="/assets/mill-facility-tower.webp"
+            src="/assets/durga-rice-mill-processing-facility-silos-mouda.webp"
             alt="Durga Rice Mill high-tech grain elevators and 4-acre modern milling facility in Mouda, Nagpur"
             className="about-snippet-img"
           />
@@ -130,8 +130,8 @@ export function AboutPage() {
 
           <div className="story-visual grain-overlay">
             <img
-              src="/assets/harvest.webp"
-              alt="Harvested paddy fields in Vidarbha"
+              src="/assets/durga-rice-mill-wainganga-paddy-harvest-farmers.webp"
+              alt="Harvested paddy fields along Wainganga basin supplying Durga Rice Mill in Vidarbha"
               className="story-img"
             />
             <div className="story-badge">

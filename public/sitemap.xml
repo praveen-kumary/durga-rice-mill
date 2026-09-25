@@ -1,73 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <!-- Core Static Pages -->
+  <!-- Core Clean Static Pages -->
   <url>
     <loc>https://durgaricemill.com/</loc>
-    <lastmod>2026-09-16</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://durgaricemill.com/#products</loc>
-    <lastmod>2026-09-16</lastmod>
+    <loc>https://durgaricemill.com/products</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://durgaricemill.com/#about</loc>
-    <lastmod>2026-09-16</lastmod>
+    <loc>https://durgaricemill.com/about</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://durgaricemill.com/#contact</loc>
-    <lastmod>2026-09-16</lastmod>
+    <loc>https://durgaricemill.com/contact</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Product Detail Pages -->
+  <!-- Product Detail Pages with Rich Image Metadata -->
   <url>
-    <loc>https://durgaricemill.com/#product/white-and-white-gold</loc>
-    <lastmod>2026-09-16</lastmod>
+    <loc>https://durgaricemill.com/product/white-and-white-gold</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://durgaricemill.com/assets/bags/durga-rice-mill-white-and-white-rnr-steam-rice-26kg-pack.webp</image:loc>
+      <image:title>RNR Steam Rice 26kg Sack - Durga Rice Mill</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://durgaricemill.com/#product/white-and-white-ruby</loc>
-    <lastmod>2026-09-16</lastmod>
+    <loc>https://durgaricemill.com/product/white-and-white-ruby</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://durgaricemill.com/assets/bags/durga-rice-mill-white-and-white-jsr-wada-kolam-broken-ruby-26kg-pack.webp</image:loc>
+      <image:title>JSR Lachkari Wada Kolam Broken Rice 26kg - Durga Rice Mill</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://durgaricemill.com/#product/white-and-white-emerald</loc>
-    <lastmod>2026-09-16</lastmod>
+    <loc>https://durgaricemill.com/product/white-and-white-emerald</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://durgaricemill.com/assets/bags/durga-rice-mill-white-and-white-jsr-raw-broken-emerald-26kg-pack.webp</image:loc>
+      <image:title>JSR Lachkari Wada Kolam Raw Broken Rice 26kg - Durga Rice Mill</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://durgaricemill.com/#product/lazeez-kolam-green</loc>
-    <lastmod>2026-09-16</lastmod>
+    <loc>https://durgaricemill.com/product/lazeez-kolam-green</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://durgaricemill.com/assets/bags/durga-rice-mill-lazeez-jsr-lachkari-wada-kolam-green-30kg-pack.webp</image:loc>
+      <image:title>Lazeez Premium JSR Lachkari Wada Kolam Green Pack 30kg - Durga Rice Mill</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://durgaricemill.com/#product/lazeez-kolam-gold</loc>
-    <lastmod>2026-09-16</lastmod>
+    <loc>https://durgaricemill.com/product/lazeez-kolam-gold</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://durgaricemill.com/assets/bags/durga-rice-mill-lazeez-premium-biryani-rice-gold-30kg-pack.webp</image:loc>
+      <image:title>Lazeez Premium JSR Lachkari Wada Kolam Gold Pack 30kg - Durga Rice Mill</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://durgaricemill.com/#product/ragul-bullet-colom</loc>
-    <lastmod>2026-09-16</lastmod>
+    <loc>https://durgaricemill.com/product/ragul-bullet-colom</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://durgaricemill.com/assets/bags/durga-rice-mill-ragul-bullet-super-vada-colom-26kg-pack.webp</image:loc>
+      <image:title>Ragul Bullet Super Vada Colom Rice No 1 26kg - Durga Rice Mill</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://durgaricemill.com/#product/meri-jaan-jeera</loc>
-    <lastmod>2026-09-16</lastmod>
+    <loc>https://durgaricemill.com/product/meri-jaan-jeera</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://durgaricemill.com/assets/bags/durga-rice-mill-meri-jaan-jeera-raw-rice-sizer-26kg-pack.webp</image:loc>
+      <image:title>Jeera Raw Rice Sizer 26kg - Durga Rice Mill</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://durgaricemill.com/product/meri-jaan-sambhar</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://durgaricemill.com/assets/bags/durga-rice-mill-meri-jaan-jeera-sambhar-rice-30kg-pack.webp</image:loc>
+      <image:title>Jeera Sambhar Rice 30kg Sack - Durga Rice Mill</image:title>
+    </image:image>
   </url>
 </urlset>

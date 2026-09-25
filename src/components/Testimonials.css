@@ -92,3 +92,20 @@
     gap: 24px;
   }
 }
+
+@media (max-width: 600px) {
+  .testimonial-card {
+    padding: 24px 18px;
+  }
+  .testimonial-quote-text {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+  .testimonials-headline {
+    font-size: clamp(1.8rem, 6vw, 2.4rem);
+    margin-top: 10px;
+  }
+  .testimonials-header {
+    margin-bottom: 30px;
+  }
+}

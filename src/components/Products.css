@@ -831,6 +831,57 @@
   color: #8c6a28;
 }
 
+/* Pricing & MRP Strip */
+.detail-price-strip {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin: 14px 0 16px;
+  background: rgba(212, 160, 23, 0.08);
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(212, 160, 23, 0.3);
+  flex-wrap: wrap;
+}
+
+.detail-price-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-price-cell.bordered {
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
+  padding-left: 16px;
+}
+
+.price-cell-lbl {
+  font-size: 0.72rem;
+  color: #64748b;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.price-cell-val {
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+.price-cell-val.main-mrp {
+  font-size: 1.25rem;
+  color: #0f172a;
+}
+
+.price-cell-val.unit-price {
+  color: #b45309;
+}
+
+.price-cell-val.fssai-lic {
+  font-size: 0.88rem;
+  color: #16a34a;
+}
+
 /* CTA Box */
 .detail-cta-box {
   margin-top: 28px;
@@ -878,7 +929,7 @@
 @media (max-width: 1040px) {
   .detail-main-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 36px;
   }
   .detail-visual-col {
     position: static;
@@ -886,27 +937,85 @@
   .products-preview-grid,
   .catalog-cards-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .detail-main-image-frame {
+    height: clamp(340px, 45vw, 440px);
   }
 }
 
 @media (max-width: 640px) {
+  .category-tabs-bar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+    margin-top: 20px;
+    scrollbar-width: none;
+    gap: 6px;
+  }
+  .category-tabs-bar::-webkit-scrollbar {
+    display: none;
+  }
+  .cat-tab-btn {
+    flex-shrink: 0;
+    padding: 7px 16px;
+    font-size: 0.78rem;
+  }
+
   .products-preview-grid,
   .catalog-cards-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
   .packaging-options-banner {
     grid-template-columns: 1fr;
-    padding: 24px;
-  }
-  .nutrition-stats-grid {
-    grid-template-columns: repeat(3, 1fr);
+    padding: 20px 16px;
+    gap: 18px;
   }
   .detail-grain-features {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .grain-feat-card {
+    padding: 10px 6px;
+  }
+  .grain-feat-card .feat-val {
+    font-size: 0.95rem;
+  }
+  .grain-feat-card .feat-lbl {
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
   }
   .gallery-thumbs-row {
     grid-template-columns: repeat(4, 1fr);
     gap: 6px;
+  }
+
+  /* Technical Specs Table on Mobile */
+  .detail-specs-table-wrap {
+    margin-left: -4px;
+    margin-right: -4px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .editorial-specs-table th {
+    width: 44%;
+    white-space: normal;
+    padding: 10px 10px;
+    font-size: 0.76rem;
+  }
+  .editorial-specs-table td {
+    padding: 10px 10px;
+    font-size: 0.78rem;
+  }
+
+  .detail-cta-box {
+    padding: 18px 14px;
+    margin-top: 22px;
+  }
+  .detail-cta-box .btn-gold {
+    width: 100%;
+    justify-content: center;
   }
 
   /* Products preview header stacks vertically on mobile */
@@ -914,27 +1023,83 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
   }
 
   .products-preview-title {
     font-size: clamp(1.8rem, 6vw, 2.4rem);
-    margin-top: 10px;
+    margin-top: 8px;
   }
 
   /* Reduce card thumbnail height on mobile for faster scanning */
   .card-thumb-wrap {
-    height: clamp(280px, 60vw, 360px);
+    height: clamp(260px, 58vw, 340px);
   }
 
   /* Products preview footer button — smaller and centered */
   .products-preview-footer {
-    margin-top: 28px;
+    margin-top: 24px;
   }
 
   .products-preview-footer .btn-outline-gold {
     font-size: 0.8rem;
     padding: 10px 20px;
+  }
+
+  .catalog-count-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* Related section header stacks cleanly on mobile */
+  .related-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  /* Detail price strip becomes a balanced 2-column grid on mobile */
+  .detail-price-strip {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 12px 14px;
+  }
+  .detail-price-cell.bordered {
+    border-left: none;
+    padding-left: 0;
+  }
+  .detail-price-cell:last-child {
+    grid-column: span 2;
+    padding-top: 8px;
+    border-top: 1px dashed rgba(212, 160, 23, 0.25);
+  }
+  .price-cell-val.main-mrp {
+    font-size: 1.1rem;
+  }
+  .price-cell-val.unit-price {
+    font-size: 1.02rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .detail-grain-features {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .grain-feat-card {
+    padding: 12px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .grain-feat-card .feat-lbl {
+    margin-top: 0;
+  }
+  .detail-main-image-frame {
+    height: 280px;
   }
 }
 

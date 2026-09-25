@@ -28,42 +28,55 @@ export type Page =
   | { view: 'contact'; variety?: string }
   | { view: 'not-found'; attemptedRoute?: string };
 
-function parseRouteFromHash(): Page {
+function parseRoute(): Page {
+  // Gracefully migrate legacy hash routes (e.g., /#about, /#products, /#product/xyz) to clean path URLs
   const hash = window.location.hash.replace(/^#\/?/, '').trim();
-  if (!hash || hash === 'home') {
+  if (hash) {
+    let cleanMigratedPath = '/';
+    if (hash === 'about') cleanMigratedPath = '/about';
+    else if (hash === 'products') cleanMigratedPath = '/products';
+    else if (hash.startsWith('product/')) cleanMigratedPath = `/${hash}`;
+    else if (hash.startsWith('contact')) cleanMigratedPath = `/${hash}`;
+    else if (hash === '404' || hash === 'not-found') cleanMigratedPath = '/404';
+
+    window.history.replaceState(null, '', cleanMigratedPath);
+  }
+
+  // Parse clean pathname
+  const path = window.location.pathname.replace(/^\/+|\/+$/g, '').trim();
+  const search = window.location.search;
+
+  if (!path || path === 'home') {
     return { view: 'home' };
   }
-  if (hash === 'about') {
+  if (path === 'about') {
     return { view: 'about' };
   }
-  if (hash === 'products') {
+  if (path === 'products') {
     return { view: 'products' };
   }
-  if (hash.startsWith('product/')) {
-    const productId = hash.replace('product/', '').trim();
+  if (path.startsWith('product/')) {
+    const productId = path.replace('product/', '').trim();
     if (products.some((p) => p.id === productId)) {
       return { view: 'product', id: productId };
     }
-    return { view: 'not-found', attemptedRoute: hash };
+    return { view: 'not-found', attemptedRoute: `/${path}` };
   }
-  if (hash.startsWith('contact')) {
-    const queryIdx = hash.indexOf('?');
-    if (queryIdx !== -1) {
-      const params = new URLSearchParams(hash.slice(queryIdx + 1));
-      const variety = params.get('variety') || undefined;
-      return { view: 'contact', variety };
-    }
-    return { view: 'contact' };
+  if (path === 'contact') {
+    const params = new URLSearchParams(search);
+    const variety = params.get('variety') || undefined;
+    return { view: 'contact', variety };
   }
-  if (hash === '404' || hash === 'not-found') {
-    return { view: 'not-found', attemptedRoute: hash };
+  if (path === '404' || path === 'not-found') {
+    return { view: 'not-found', attemptedRoute: `/${path}` };
   }
-  // Unknown route
-  return { view: 'not-found', attemptedRoute: hash };
+
+  // Unknown route -> 404
+  return { view: 'not-found', attemptedRoute: `/${path}` };
 }
 
 export default function App() {
-  const [page, setPage] = useState<Page>(() => parseRouteFromHash());
+  const [page, setPage] = useState<Page>(() => parseRoute());
   const lenisRef = useRef<Lenis | null>(null);
 
   // Lenis Smooth scrolling
@@ -87,53 +100,133 @@ export default function App() {
     };
   }, []);
 
-  // Listen to browser hash changes & back/forward buttons
+  // Listen to browser Back / Forward buttons (popstate)
   useEffect(() => {
-    const handleHashChange = () => {
-      setPage(parseRouteFromHash());
+    const handlePopState = () => {
+      setPage(parseRoute());
     };
-    window.addEventListener('hashchange', handleHashChange);
-    window.addEventListener('popstate', handleHashChange);
+    window.addEventListener('popstate', handlePopState);
     return () => {
-      window.removeEventListener('hashchange', handleHashChange);
-      window.removeEventListener('popstate', handleHashChange);
+      window.removeEventListener('popstate', handlePopState);
     };
   }, []);
 
-  // Dynamic SEO metadata (Title & Meta Description) updates
+  // Comprehensive SEO updates on every route change: Title, Canonical, Meta Descriptions, OG, Twitter & JSON-LD
   useEffect(() => {
+    const origin = 'https://durgaricemill.com';
     let title = 'Durga Rice Mill — 20+ Years of Premium Rice Milling, Mouda, Nagpur';
     let desc =
-      'Durga Rice Mill (Est. 2005, Mouda, Nagpur) — Leading commercial rice manufacturer producing White & White Lachkari Wada Kolam, Lazeez Biryani Rice, Ragul Bullet, and Meri Jaan Jeera Rice.';
+      'Durga Rice Mill (Est. 2005, Mouda, Nagpur) — Leading commercial rice manufacturer producing RNR Steam Rice, JSR Lachkari Wada Kolam, Lazeez Biryani Rice, Ragul Bullet, and Jeera Raw Rice (Sizer).';
+    let canonical = `${origin}/`;
+    let ogImage = `${origin}/assets/durga-rice-mill-processing-facility-silos-mouda.webp`;
+    let currentProd: typeof products[0] | undefined;
 
     if (page.view === 'about') {
       title = 'About Our Mill & 20+ Years Heritage | Durga Rice Mill, Mouda';
       desc =
-        'Established in 2005 in Aroli, Mouda, Nagpur, Durga Rice Mill produces over 250 metric tons per day of optical sortex-graded wholesale rice.';
+        'Established in 2005 in Aroli, Mouda, Nagpur, Durga Rice Mill produces over 250 metric tons per day of optical sortex-graded wholesale rice across Maharashtra and India.';
+      canonical = `${origin}/about`;
     } else if (page.view === 'products') {
       title = 'Wholesale Rice Catalog (26kg & 30kg Bags) | Durga Rice Mill';
       desc =
-        'Explore official 26kg and 30kg bags of White & White Lachkari Wada Kolam, Lazeez Biryani Rice, Ragul Bullet, and Meri Jaan Jeera Rice.';
+        'Explore official 26kg and 30kg commercial sacks of RNR Steam Rice, JSR Lachkari Wada Kolam Broken Rice, Lazeez Biryani Rice, Ragul Bullet, and Jeera Raw Rice (Sizer).';
+      canonical = `${origin}/products`;
     } else if (page.view === 'product' && 'id' in page) {
-      const prod = products.find((p) => p.id === page.id);
-      if (prod) {
-        title = `${prod.name} — Specifications & Milling Grade | Durga Rice Mill`;
-        desc = prod.description.slice(0, 160);
+      currentProd = products.find((p) => p.id === page.id);
+      if (currentProd) {
+        title = `${currentProd.name} — Specifications & Milling Grade | Durga Rice Mill`;
+        desc = currentProd.description.slice(0, 160);
+        canonical = `${origin}/product/${currentProd.id}`;
+        ogImage = `${origin}${currentProd.image}`;
       }
     } else if (page.view === 'contact') {
       title = 'Commercial Mandi Inquiry & Mill Dispatch Desk | Durga Rice Mill';
       desc =
-        'Contact Durga Rice Mill in Mouda, Nagpur for wholesale truckload quotes, APMC mandi shipments, and sample bags. Call +91 94222 14567.';
+        'Contact Durga Rice Mill in Mouda, Nagpur for wholesale truckload quotes, APMC mandi shipments, and sample bags. Call +91 94222 14567 or submit an online RFQ.';
+      canonical = `${origin}/contact`;
     } else if (page.view === 'not-found') {
-      title = '404: Grain Not Found in the Silo | Durga Rice Mill';
+      title = '404: Page Not Found | Durga Rice Mill';
       desc =
-        'The requested rice variety or page could not be located in the Durga Rice Mill catalog. Browse all 7 official varieties or return to home.';
+        'The requested rice variety or page could not be located in the Durga Rice Mill catalog. Browse all 8 official varieties or return to home.';
+      canonical = `${origin}/404`;
     }
 
+    // Set page title
     document.title = title;
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute('content', desc);
+
+    // Helper to set or create meta tags
+    const setMetaTag = (selector: string, attr: string, value: string) => {
+      let elem = document.querySelector(selector);
+      if (!elem) {
+        elem = document.createElement('meta');
+        if (selector.startsWith('meta[name=')) {
+          const name = selector.match(/meta\[name="([^"]+)"\]/)?.[1];
+          if (name) elem.setAttribute('name', name);
+        } else if (selector.startsWith('meta[property=')) {
+          const prop = selector.match(/meta\[property="([^"]+)"\]/)?.[1];
+          if (prop) elem.setAttribute('property', prop);
+        }
+        document.head.appendChild(elem);
+      }
+      elem.setAttribute(attr, value);
+    };
+
+    setMetaTag('meta[name="description"]', 'content', desc);
+    setMetaTag('meta[property="og:title"]', 'content', title);
+    setMetaTag('meta[property="og:description"]', 'content', desc);
+    setMetaTag('meta[property="og:url"]', 'content', canonical);
+    setMetaTag('meta[property="og:image"]', 'content', ogImage);
+    setMetaTag('meta[name="twitter:title"]', 'content', title);
+    setMetaTag('meta[name="twitter:description"]', 'content', desc);
+    setMetaTag('meta[name="twitter:url"]', 'content', canonical);
+    setMetaTag('meta[name="twitter:image"]', 'content', ogImage);
+
+    // Canonical link tag
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalLink);
+    }
+    canonicalLink.setAttribute('href', canonical);
+
+    // Dynamic Product Schema (JSON-LD) for rich search snippets
+    let productSchemaScript = document.getElementById('schema-product-ld');
+    if (currentProd) {
+      const productSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        'name': currentProd.name,
+        'image': `${origin}${currentProd.image}`,
+        'description': currentProd.description,
+        'brand': {
+          '@type': 'Brand',
+          'name': currentProd.brand,
+        },
+        'category': currentProd.category,
+        'offers': {
+          '@type': 'Offer',
+          'url': canonical,
+          'priceCurrency': 'INR',
+          'price': currentProd.mrp ? currentProd.mrp.replace(/[^0-9]/g, '') : '2080',
+          'itemCondition': 'https://schema.org/NewCondition',
+          'availability': 'https://schema.org/InStock',
+          'seller': {
+            '@type': 'Organization',
+            'name': 'Durga Rice Mill',
+          },
+        },
+      };
+
+      if (!productSchemaScript) {
+        productSchemaScript = document.createElement('script');
+        productSchemaScript.id = 'schema-product-ld';
+        productSchemaScript.setAttribute('type', 'application/ld+json');
+        document.head.appendChild(productSchemaScript);
+      }
+      productSchemaScript.textContent = JSON.stringify(productSchema);
+    } else if (productSchemaScript) {
+      productSchemaScript.remove();
     }
   }, [page]);
 
@@ -148,26 +241,27 @@ export default function App() {
   }, [page]);
 
   const navigate = (view: string, param?: string) => {
-    let newHash = '';
+    let targetPath = '/';
     if (view === 'product' && param) {
-      newHash = `product/${param}`;
+      targetPath = `/product/${param}`;
       setPage({ view: 'product', id: param });
     } else if (view === 'contact') {
-      newHash = param ? `contact?variety=${encodeURIComponent(param)}` : 'contact';
+      targetPath = param ? `/contact?variety=${encodeURIComponent(param)}` : '/contact';
       setPage({ view: 'contact', variety: param });
     } else if (view === 'not-found') {
-      newHash = '404';
+      targetPath = '/404';
       setPage({ view: 'not-found', attemptedRoute: param });
     } else if (view === 'home') {
-      newHash = '';
+      targetPath = '/';
       setPage({ view: 'home' });
     } else {
-      newHash = view;
+      targetPath = `/${view}`;
       setPage({ view: view as Page['view'] } as Page);
     }
 
-    if (window.location.hash.replace(/^#\/?/, '') !== newHash) {
-      window.history.pushState(null, '', newHash ? `#${newHash}` : window.location.pathname);
+    const currentUrl = window.location.pathname + window.location.search;
+    if (currentUrl !== targetPath) {
+      window.history.pushState(null, '', targetPath);
     }
 
     if (lenisRef.current) {

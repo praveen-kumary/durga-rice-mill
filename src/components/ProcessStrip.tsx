@@ -51,8 +51,8 @@ export default function ProcessStrip() {
 
           <div className="process-img-frame grain-overlay">
             <img
-              src="/assets/milling.webp"
-              alt="Milling line inside Durga Rice Mill"
+              src="/assets/durga-rice-mill-buhler-sortex-milling-plant.webp"
+              alt="Buhler Sortex optical color sorter and automated milling line inside Durga Rice Mill Mouda facility"
               className="process-mill-img"
             />
             <div className="process-img-caption">

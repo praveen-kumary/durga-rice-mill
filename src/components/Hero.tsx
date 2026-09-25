@@ -18,32 +18,33 @@ interface BannerSlide {
 const bannerSlides: BannerSlide[] = [
   {
     id: 'brands',
-    desktopImage: '/assets/banners/desktop/1.webp',
-    mobileImage: '/assets/banners/mobile/1.webp',
-    alt: 'Durga Rice Mill branded wholesale rice bags lineup including Lazeez, White & White, and Ragul Bullet in front of the Mouda processing facility',
+    desktopImage: '/assets/banners/desktop/durga-rice-mill-wholesale-rice-bags-lineup.webp',
+    mobileImage: '/assets/banners/mobile/durga-rice-mill-wholesale-rice-bags-lineup-mobile.webp',
+    alt: 'Durga Rice Mill wholesale commercial branded rice bags lineup including Meri Jaan, White & White, Lazeez, and Raad Bullet at Mouda facility',
   },
   {
     id: 'mill',
-    desktopImage: '/assets/banners/desktop/2.webp',
-    mobileImage: '/assets/banners/mobile/2.webp',
-    alt: 'Durga Rice Mill modern industrial processing plant with tall storage silos, harvest bowls, and lush green paddy fields',
+    desktopImage: '/assets/banners/desktop/durga-rice-mill-processing-plant-paddy-harvest.webp',
+    mobileImage: '/assets/banners/mobile/durga-rice-mill-processing-plant-paddy-harvest-mobile.webp',
+    alt: 'Durga Rice Mill high-capacity grain processing silos, freshly harvested paddy sacks, and steamed fragrant white rice',
   },
   {
     id: 'harvest',
-    desktopImage: '/assets/banners/desktop/3.webp',
-    mobileImage: '/assets/banners/mobile/3.webp',
-    alt: 'Golden paddy harvest along Wainganga basin with raw grain sacks, steaming cooked rice, and Durga Rice Mill processing facility',
+    desktopImage: '/assets/banners/desktop/durga-rice-mill-golden-paddy-harvest-basin.webp',
+    mobileImage: '/assets/banners/mobile/durga-rice-mill-golden-paddy-harvest-basin-mobile.webp',
+    alt: 'Golden paddy harvest fields along Wainganga river basin with authentic rice milling operations in Mouda, Nagpur',
   },
 ];
 
 const popularVarieties = [
-  { name: 'White & White Gold (26kg)', id: 'white-and-white-gold' },
-  { name: 'White & White Ruby (26kg)', id: 'white-and-white-ruby' },
-  { name: 'White & White Emerald (26kg)', id: 'white-and-white-emerald' },
+  { name: 'RNR Steam Rice (26kg)', id: 'white-and-white-gold' },
+  { name: 'JSR Wada Kolam Broken (26kg)', id: 'white-and-white-ruby' },
+  { name: 'JSR Wada Kolam Raw Broken (26kg)', id: 'white-and-white-emerald' },
   { name: 'Lazeez Green (30kg)', id: 'lazeez-kolam-green' },
   { name: 'Lazeez Gold (30kg)', id: 'lazeez-kolam-gold' },
   { name: 'Ragul Bullet (26kg)', id: 'ragul-bullet-colom' },
-  { name: 'Meri Jaan Jeera (26kg)', id: 'meri-jaan-jeera' },
+  { name: 'Jeera Raw Rice (Sizer) (26kg)', id: 'meri-jaan-jeera' },
+  { name: 'Jeera Sambhar Rice (30kg)', id: 'meri-jaan-sambhar' },
 ];
 
 const SLIDE_INTERVAL_MS = 4500; // Auto-slides every 4.5 seconds
@@ -172,14 +173,19 @@ export default function Hero({ onExploreProducts, onContact, onProductClick }: H
             <span className="variety-tag-label">Signature Varieties:</span>
             <div className="variety-chips-wrap">
               {popularVarieties.map((v) => (
-                <button
+                <a
                   key={v.id}
+                  href={`/product/${v.id}`}
                   className="variety-chip-btn"
-                  onClick={() => (onProductClick ? onProductClick(v.id) : onExploreProducts())}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (onProductClick) onProductClick(v.id);
+                    else onExploreProducts();
+                  }}
                   title={`View details for ${v.name}`}
                 >
                   <span>{v.name}</span>
-                </button>
+                </a>
               ))}
             </div>
           </div>
@@ -187,16 +193,30 @@ export default function Hero({ onExploreProducts, onContact, onProductClick }: H
           {/* CTA Buttons Row */}
           <div className="hero-btn-row">
             {onContact && (
-              <button className="btn-gold hero-cta-primary" onClick={onContact}>
+              <a
+                href="/contact"
+                className="btn-gold hero-cta-primary"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onContact();
+                }}
+              >
                 <span className="btn-text-desktop">Request B2B Quotation</span>
                 <span className="btn-text-mobile">Get B2B Quote</span>
                 <ArrowRight size={15} />
-              </button>
+              </a>
             )}
-            <button className="btn-outline-gold hero-cta-secondary" onClick={onExploreProducts}>
-              <span className="btn-text-desktop">Explore All 7 Bag Varieties</span>
-              <span className="btn-text-mobile">All 7 Varieties</span>
-            </button>
+            <a
+              href="/products"
+              className="btn-outline-gold hero-cta-secondary"
+              onClick={(e) => {
+                e.preventDefault();
+                onExploreProducts();
+              }}
+            >
+              <span className="btn-text-desktop">Explore All 8 Bag Varieties</span>
+              <span className="btn-text-mobile">All 8 Varieties</span>
+            </a>
           </div>
 
           {/* Trust Pillars */}

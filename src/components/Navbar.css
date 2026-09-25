@@ -291,3 +291,20 @@
     padding: 14px 0;
   }
 }
+
+@media (max-width: 360px) {
+  .navbar-logo img {
+    height: 30px;
+  }
+  .brand-main {
+    font-size: 1rem;
+  }
+  .brand-sub {
+    font-size: 0.55rem;
+    letter-spacing: 0.18em;
+  }
+  .mobile-toggle {
+    width: 34px;
+    height: 34px;
+  }
+}

@@ -75,19 +75,24 @@
 
 @media (max-width: 480px) {
   .stats-editorial-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   .stat-editorial-card::after {
     display: none;
   }
   .stat-editorial-card {
-    padding: 20px 16px;
+    padding: 18px 12px;
+    border-bottom: 1px solid rgba(201, 152, 70, 0.12);
+  }
+  .stat-editorial-card:nth-child(odd) {
+    border-right: 1px solid rgba(201, 152, 70, 0.12);
   }
   .stat-display-num {
-    font-size: 2rem;
+    font-size: 1.85rem;
   }
   .stat-display-label {
-    font-size: 0.65rem;
-    margin-top: 8px;
+    font-size: 0.62rem;
+    margin-top: 6px;
+    letter-spacing: 0.16em;
   }
 }

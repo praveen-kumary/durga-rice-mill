@@ -30,38 +30,47 @@ export default function NotFound({ onNavigate, attemptedRoute }: NotFoundProps) 
 
         {/* Two clean, balanced buttons */}
         <div className="notfound-actions">
-          <button
-            type="button"
+          <a
+            href="/"
             className="btn-gold notfound-btn"
-            onClick={() => onNavigate('home')}
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('home');
+            }}
             id="notfound-btn-home"
           >
             <Home size={15} />
             <span>Return to Home</span>
-          </button>
+          </a>
 
-          <button
-            type="button"
+          <a
+            href="/products"
             className="btn-outline-gold notfound-btn"
-            onClick={() => onNavigate('products')}
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('products');
+            }}
             id="notfound-btn-products"
           >
             <Package size={15} />
-            <span>Browse All 7 Varieties</span>
-          </button>
+            <span>Browse All 8 Varieties</span>
+          </a>
         </div>
 
         {/* Understated help link */}
         <div className="notfound-help-row">
           <span>Need bulk booking or mandi pricing?</span>
-          <button
-            type="button"
+          <a
+            href="/contact"
             className="notfound-contact-link"
-            onClick={() => onNavigate('contact')}
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('contact');
+            }}
           >
             <PhoneCall size={13} />
             <span>Contact Mill Desk</span>
-          </button>
+          </a>
         </div>
       </div>
     </section>

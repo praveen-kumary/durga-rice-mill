@@ -185,13 +185,17 @@
   gap: 12px;
 }
 
+.footer-link-list a,
 .footer-link-list button {
   font-size: 0.85rem;
   color: var(--color-text-dark-secondary);
   transition: all 0.2s ease;
   text-align: left;
+  display: inline-block;
+  cursor: pointer;
 }
 
+.footer-link-list a:hover,
 .footer-link-list button:hover {
   color: var(--color-gold);
   transform: translateX(4px);
@@ -260,6 +264,7 @@
 .footer-bottom-left,
 .footer-bottom-right {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 10px;
 }
@@ -283,7 +288,12 @@
   .footer-bottom-bar {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 12px;
+  }
+  .footer-bottom-left,
+  .footer-bottom-right {
+    gap: 6px 8px;
+    font-size: 0.74rem;
   }
   .footer-manifesto {
     font-size: 0.82rem;
@@ -291,6 +301,7 @@
   .footer-col-title {
     font-size: 0.78rem;
   }
+  .footer-link-list a,
   .footer-link-list button {
     font-size: 0.82rem;
   }

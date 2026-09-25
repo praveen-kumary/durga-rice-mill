@@ -137,7 +137,34 @@
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 640px) {
+  .quality-headline {
+    font-size: clamp(1.8rem, 6vw, 2.4rem);
+    margin-top: 10px;
+  }
+  .cert-badges-grid {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 36px;
+  }
+  .cert-badge-card {
+    padding: 22px 14px;
+  }
+  .cert-badge-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  .cert-badge-name {
+    font-size: 0.95rem;
+  }
+  .cert-badge-code {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+  }
+}
+
+@media (max-width: 380px) {
   .cert-badges-grid {
     grid-template-columns: 1fr;
   }

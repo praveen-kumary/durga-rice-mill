@@ -6,7 +6,9 @@ import {
   ArrowRight,
   CheckCircle2,
   MessageSquare,
-  Navigation
+  Navigation,
+  Loader2,
+  AlertCircle
 } from 'lucide-react';
 import { products } from '../data/products';
 import './ContactPage.css';
@@ -26,8 +28,14 @@ const transitHubs = [
 ];
 
 export default function ContactPage({ initialVariety }: ContactPageProps) {
+  // Web3Forms Access Key for Durga Rice Mill
+  const WEB3FORMS_ACCESS_KEY = 'eb2461a4-34a3-4b58-b475-9633d7b088cc';
+
   // Form State
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
   const [form, setForm] = useState({
     name: '',
     company: '',
@@ -40,9 +48,47 @@ export default function ContactPage({ initialVariety }: ContactPageProps) {
     notes: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setErrorMessage(null);
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `Wholesale Quotation Request: ${form.tonnage} of ${form.variety} - ${form.name} (${form.company})`,
+          from_name: 'Durga Rice Mill Web Portal',
+          buyer_name: form.name,
+          trading_company: form.company,
+          phone_whatsapp: form.phone,
+          email: form.email || 'Not provided',
+          rice_variety: form.variety,
+          required_volume: form.tonnage,
+          packaging_type: form.packaging,
+          destination_siding: form.destination,
+          notes_specifications: form.notes || 'None provided',
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        setErrorMessage(data.message || 'Transmission failed. Please verify your details and try again.');
+      }
+    } catch (err) {
+      console.error('Web3Forms submission error:', err);
+      setErrorMessage('Network connection interrupted. Please try again or message our sales desk directly on WhatsApp at +91 94222 14567.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -74,24 +120,53 @@ export default function ContactPage({ initialVariety }: ContactPageProps) {
               {submitted ? (
                 <div className="form-success-state">
                   <CheckCircle2 size={54} className="success-icon" />
-                  <h2>Official RFQ Dispatched</h2>
+                  <h2>Official RFQ Dispatched to Mill Desk</h2>
                   <p>
                     Thank you, <strong>{form.name || 'Valued Trader'}</strong>. Your inquiry for{' '}
                     <strong>{form.tonnage} of {form.variety}</strong> ({form.packaging})
-                    has been transmitted directly to our sales desk in Mouda, Nagpur.
+                    has been delivered directly to our sales desk at <strong>durgarm@hotmail.com</strong>.
                   </p>
 
                   <p className="success-sub">
                     Our Commercial Director will contact you on <strong>{form.phone || 'your phone'}</strong> with
                     firm landed pricing, GST weigh slips, and delivery window within 2 business hours.
                   </p>
-                  <button
-                    className="btn-dark-pill"
-                    style={{ marginTop: 24 }}
-                    onClick={() => setSubmitted(false)}
-                  >
-                    Submit another quotation request
-                  </button>
+
+                  <div className="success-actions-row">
+                    <a
+                      href={`https://wa.me/919422214567?text=${encodeURIComponent(
+                        `Hello Durga Rice Mill, I have submitted a wholesale price request on your website.\n\n*Name:* ${form.name}\n*Company:* ${form.company}\n*Variety:* ${form.variety}\n*Tonnage:* ${form.tonnage}\n*Packaging:* ${form.packaging}\n*Destination:* ${form.destination}\n*Phone:* ${form.phone}${form.notes ? `\n*Notes:* ${form.notes}` : ''}`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-gold"
+                      style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}
+                    >
+                      <MessageSquare size={16} />
+                      <span>Also Send on WhatsApp (+91 94222 14567)</span>
+                    </a>
+
+                    <button
+                      className="btn-dark-pill"
+                      onClick={() => {
+                        setSubmitted(false);
+                        setErrorMessage(null);
+                        setForm({
+                          name: '',
+                          company: '',
+                          phone: '',
+                          email: '',
+                          variety: products[0].name,
+                          tonnage: '25 MT (1 FTL Heavy Truckload)',
+                          packaging: '50 kg (Jute/PP Commercial Sack)',
+                          destination: '',
+                          notes: '',
+                        });
+                      }}
+                    >
+                      Submit another quotation request
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="rfq-form">
@@ -223,9 +298,30 @@ export default function ContactPage({ initialVariety }: ContactPageProps) {
                     />
                   </div>
 
-                  <button type="submit" className="btn-gold form-submit-btn">
-                    <span>Submit Request for Official Mill Quotation</span>
-                    <ArrowRight size={16} />
+                  {errorMessage && (
+                    <div className="form-error-alert" role="alert">
+                      <AlertCircle size={18} style={{ flexShrink: 0 }} />
+                      <span>{errorMessage}</span>
+                    </div>
+                  )}
+
+                  <button
+                    type="submit"
+                    className="btn-gold form-submit-btn"
+                    disabled={submitting}
+                    style={{ opacity: submitting ? 0.75 : 1, cursor: submitting ? 'wait' : 'pointer' }}
+                  >
+                    {submitting ? (
+                      <>
+                        <Loader2 size={16} className="animate-spin" />
+                        <span>Transmitting Request to Mill...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Submit Request for Official Mill Quotation</span>
+                        <ArrowRight size={16} />
+                      </>
+                    )}
                   </button>
                 </form>
               )}
@@ -313,12 +409,12 @@ export default function ContactPage({ initialVariety }: ContactPageProps) {
                 <div>
                   <strong>Direct WhatsApp Trading Desk</strong>
                   <a
-                    href="https://wa.me/917709696968?text=Hello%20Durga%20Rice%20Mill,%20I%20am%20interested%20in%20rice%20quotations"
+                    href="https://wa.me/919422214567?text=Hello%20Durga%20Rice%20Mill,%20I%20am%20interested%20in%20rice%20quotations"
                     target="_blank"
                     rel="noreferrer"
                     className="whatsapp-btn"
                   >
-                    <span>Chat on WhatsApp</span>
+                    <span>Chat on WhatsApp (+91 94222 14567)</span>
                     <ArrowRight size={14} />
                   </a>
                 </div>

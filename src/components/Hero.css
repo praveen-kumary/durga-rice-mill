@@ -45,7 +45,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
+  object-position: center bottom;
   display: block;
 }
 
@@ -416,9 +416,9 @@
     justify-content: flex-end; /* Anchored at bottom to keep imagery fully visible */
   }
 
-  /* High framing so bags, mill tower, and fields are clearly visible in upper 65% */
+  /* Balanced framing so bags lineup, mill silos, and fields are naturally visible and centered */
   .hero-bg-img {
-    object-position: center 6%;
+    object-position: center 30%;
   }
 
   /* Transparent mid-section so imagery is sharp & vivid; dark gradient only at bottom */
@@ -617,6 +617,12 @@
   .hero-cta-secondary {
     padding: 9px 6px !important;
     font-size: 0.72rem !important;
+  }
+
+  .hero-trust-strip {
+    flex-wrap: wrap !important;
+    padding-right: 0 !important;
+    gap: 4px 10px !important;
   }
 
   .trust-item {

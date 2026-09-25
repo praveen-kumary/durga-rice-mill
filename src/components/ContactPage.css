@@ -329,6 +329,36 @@
   color: #8c6a28 !important;
 }
 
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.form-error-alert {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: rgba(220, 38, 38, 0.08);
+  border: 1px solid rgba(220, 38, 38, 0.25);
+  border-radius: var(--radius-sm);
+  color: #b91c1c;
+  font-size: 0.86rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.success-actions-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 26px;
+  justify-content: center;
+  align-items: center;
+}
+
 /* 3. Freight Transit Time Table */
 .transit-schedule-card {
   background: #ffffff;
@@ -552,13 +582,30 @@
 @media (max-width: 1040px) {
   .contact-main-grid {
     grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-row-2 {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .contact-editorial-header {
+    padding-top: 110px;
+    padding-bottom: 36px;
+  }
+  .contact-main-title {
+    font-size: clamp(1.8rem, 6vw, 2.4rem);
+  }
+  .contact-subtitle {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-top: 12px;
   }
 }
 
 @media (max-width: 640px) {
-  .form-row-2 {
-    grid-template-columns: 1fr;
-  }
   .calc-output-strip {
     grid-template-columns: 1fr;
     gap: 14px;
@@ -567,24 +614,67 @@
   .inquiry-form-card,
   .plant-credential-card,
   .transit-schedule-card {
-    padding: 20px;
+    padding: 20px 16px;
   }
   .bag-size-buttons {
     flex-direction: column;
   }
   .quick-tonnage-tags {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .contact-hero-title {
-    font-size: clamp(1.8rem, 6vw, 2.4rem);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
   }
   .rfq-form-title {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
+  }
+  .rfq-form-desc {
+    font-size: 0.82rem;
+    margin-bottom: 18px;
+  }
+  .transit-table-wrap {
+    -webkit-overflow-scrolling: touch;
+    margin-left: -4px;
+    margin-right: -4px;
   }
   .transit-table th,
   .transit-table td {
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     padding: 10px 8px;
+  }
+  .transit-badge {
+    font-size: 0.72rem;
+    padding: 2px 6px;
+  }
+  .contact-map-frame {
+    height: 210px;
+  }
+  .plant-credential-card {
+    padding: 22px 16px;
+  }
+  .plant-credential-card .cred-card-heading,
+  .plant-credential-card h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .rfq-calculator-card,
+  .inquiry-form-card,
+  .plant-credential-card,
+  .transit-schedule-card {
+    padding: 16px 12px;
+  }
+  .form-input {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+  .form-submit-btn {
+    font-size: 0.8rem;
+    padding: 12px;
+  }
+  .transit-table th,
+  .transit-table td {
+    font-size: 0.72rem;
+    padding: 8px 6px;
   }
 }

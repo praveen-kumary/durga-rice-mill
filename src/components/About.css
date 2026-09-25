@@ -410,6 +410,10 @@
   .values-editorial-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .about-inline-stats {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 40px;
+  }
   .about-values-top {
     flex-direction: column;
     align-items: flex-start;
@@ -418,9 +422,49 @@
 }
 
 @media (max-width: 600px) {
+  .about-snippet-img {
+    height: clamp(260px, 58vw, 360px);
+  }
+  .about-snippet-title {
+    font-size: clamp(1.8rem, 6vw, 2.4rem);
+    margin-top: 12px;
+  }
+  .about-lead-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-top: 14px;
+  }
+  .about-img-badge {
+    padding: 10px 14px;
+    bottom: 14px;
+    left: 14px;
+  }
+  .badge-year {
+    font-size: 1.3rem;
+  }
+  .badge-text {
+    font-size: 0.65rem;
+  }
   .tech-cards-grid,
-  .values-editorial-grid,
-  .about-inline-stats {
+  .values-editorial-grid {
     grid-template-columns: 1fr;
+  }
+  .about-inline-stats {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 32px;
+  }
+  .inline-stat {
+    padding: 18px 12px;
+  }
+  .inline-stat-val {
+    font-size: 1.85rem;
+  }
+  .inline-stat-lbl {
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+  }
+  .about-btn-wrap .btn-gold {
+    width: 100%;
+    justify-content: center;
   }
 }

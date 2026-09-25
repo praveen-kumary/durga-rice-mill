@@ -58,13 +58,20 @@ export default function Footer({ onNavigate }: FooterProps) {
         <div className="footer-top-grid">
           {/* Brand Column */}
           <div className="footer-brand-col">
-            <div className="footer-logo-row" onClick={() => nav('home')}>
-              <img src="/assets/durga-logo.webp" alt="Durga Rice Mill" className="footer-logo-img" />
+            <a
+              href="/"
+              className="footer-logo-row"
+              onClick={(e) => {
+                e.preventDefault();
+                nav('home');
+              }}
+            >
+              <img src="/assets/durga-rice-mill-official-logo.webp" alt="Durga Rice Mill official emblem logo" className="footer-logo-img" />
               <div className="footer-logo-text">
                 <span className="brand-title">Durga</span>
                 <span className="brand-gold">Rice Mill</span>
               </div>
-            </div>
+            </a>
 
             <p className="footer-manifesto">
               Precision rice millers supplying distributors, wholesalers, and institutional buyers
@@ -83,7 +90,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               <span className="footer-social-label">Follow Us:</span>
               <div className="footer-social-buttons">
                 <a
-                  href="https://www.instagram.com"
+                  href="https://www.instagram.com/durgaricemill"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="footer-social-btn instagram"
@@ -112,10 +119,50 @@ export default function Footer({ onNavigate }: FooterProps) {
           <div className="footer-nav-col">
             <h4 className="footer-col-title">Navigation</h4>
             <ul className="footer-link-list">
-              <li><button onClick={() => nav('home')}>Home Overview</button></li>
-              <li><button onClick={() => nav('about')}>About Our Mill</button></li>
-              <li><button onClick={() => nav('products')}>All Rice Varieties</button></li>
-              <li><button onClick={() => nav('contact')}>B2B RFQ Calculator</button></li>
+              <li>
+                <a
+                  href="/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    nav('home');
+                  }}
+                >
+                  Home Overview
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/about"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    nav('about');
+                  }}
+                >
+                  About Our Mill
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/products"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    nav('products');
+                  }}
+                >
+                  All Rice Varieties
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    nav('contact');
+                  }}
+                >
+                  B2B RFQ Calculator
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -123,11 +170,72 @@ export default function Footer({ onNavigate }: FooterProps) {
           <div className="footer-nav-col">
             <h4 className="footer-col-title">Signature Grades</h4>
             <ul className="footer-link-list">
-              <li><button onClick={() => nav('product', 'wada-kolam')}>Wada Kolam Rice</button></li>
-              <li><button onClick={() => nav('product', 'sona-masoori')}>Golden Sona Masoori</button></li>
-              <li><button onClick={() => nav('product', '1121-basmati')}>1121 Steam Basmati</button></li>
-              <li><button onClick={() => nav('product', 'parboiled-rice')}>Commercial Parboiled</button></li>
-              <li><button onClick={() => nav('product', 'broken-rice')}>Sortex Broken Rice</button></li>
+              <li>
+                <a
+                  href="/product/white-and-white-gold"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    nav('product', 'white-and-white-gold');
+                  }}
+                >
+                  RNR Steam Rice (26kg)
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/product/white-and-white-ruby"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    nav('product', 'white-and-white-ruby');
+                  }}
+                >
+                  JSR Wada Kolam Broken
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/product/lazeez-kolam-green"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    nav('product', 'lazeez-kolam-green');
+                  }}
+                >
+                  Lazeez Biryani Special
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/product/ragul-bullet-colom"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    nav('product', 'ragul-bullet-colom');
+                  }}
+                >
+                  Ragul Bullet Super Vada
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/product/meri-jaan-jeera"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    nav('product', 'meri-jaan-jeera');
+                  }}
+                >
+                  Jeera Raw Rice (Sizer)
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/product/meri-jaan-sambhar"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    nav('product', 'meri-jaan-sambhar');
+                  }}
+                >
+                  Jeera Sambhar Rice (30kg)
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -152,10 +260,17 @@ export default function Footer({ onNavigate }: FooterProps) {
               </div>
             </div>
 
-            <button className="footer-rfq-btn" onClick={() => nav('contact')}>
+            <a
+              href="/contact"
+              className="footer-rfq-btn"
+              onClick={(e) => {
+                e.preventDefault();
+                nav('contact');
+              }}
+            >
               <span>Request Price Quote</span>
               <ArrowUpRight size={14} />
-            </button>
+            </a>
           </div>
         </div>
 
@@ -171,7 +286,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             <span className="footer-dot">•</span>
             <div className="footer-bottom-socials">
               <a
-                href="https://www.instagram.com"
+                href="https://www.instagram.com/durgaricemill"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-mini-social"
