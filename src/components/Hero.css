@@ -58,6 +58,10 @@
   object-position: center bottom;
 }
 
+.hero-bg-slide[data-slide="harvest-sunset"] .hero-bg-img {
+  object-position: center bottom;
+}
+
 /* 2. Overlays & Lighting — Minimal gradient for vibrant, luminous display */
 .hero-overlay-gradient {
   position: absolute;
@@ -435,6 +439,12 @@
   .hero-bg-slide[data-slide="mill"] .hero-bg-img {
     object-fit: cover;
     object-position: center 42%;
+  }
+
+  /* Slide 3: Mill processing plant, sunset sky and freshly harvested rice */
+  .hero-bg-slide[data-slide="harvest-sunset"] .hero-bg-img {
+    object-fit: cover;
+    object-position: center bottom;
   }
 
   /* Transparent mid-section so imagery is sharp & vivid; dark gradient only at bottom */

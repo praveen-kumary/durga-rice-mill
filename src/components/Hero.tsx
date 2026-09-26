@@ -28,6 +28,12 @@ const bannerSlides: BannerSlide[] = [
     mobileImage: '/assets/banners/mobile/durga-rice-mill-processing-plant-paddy-harvest-mobile.webp',
     alt: 'Durga Rice Mill high-capacity grain processing silos, freshly harvested paddy sacks, and steamed fragrant white rice',
   },
+  {
+    id: 'harvest-sunset',
+    desktopImage: '/assets/banners/desktop/durga-rice-mill-paddy-fields-milling-plant-sunset.webp',
+    mobileImage: '/assets/banners/mobile/durga-rice-mill-paddy-fields-milling-plant-sunset-mobile.webp',
+    alt: 'Durga Rice Mill modern grain milling plant and silos with surrounding green paddy fields, fresh harvested rice grains in wooden bowl and burlap sack at golden sunset',
+  },
 ];
 
 const popularVarieties = [
