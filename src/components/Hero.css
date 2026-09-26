@@ -425,33 +425,10 @@
     justify-content: flex-end; /* Anchored at bottom to keep imagery fully visible */
   }
 
-  /* Tailored mobile framing: bags lineup is completely uncropped with ambient backdrop */
-  .hero-bg-slide[data-slide="brands"] {
-    background: #0d1e15;
-  }
-
-  .hero-bg-slide[data-slide="brands"]::before {
-    content: '';
-    position: absolute;
-    inset: -15px;
-    background: url('/assets/banners/mobile/durga-rice-mill-wholesale-rice-bags-lineup-mobile.webp') center 28% / cover no-repeat;
-    filter: blur(16px);
-    opacity: 0.52;
-    transform: scale(1.08);
-  }
-
-  .hero-bg-slide[data-slide="brands"] .hero-bg-picture {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
+  /* Slide 1: 8 wholesale bags lineup in 9:16 portrait framing */
   .hero-bg-slide[data-slide="brands"] .hero-bg-img {
-    object-fit: contain;
-    object-position: center 22%;
-    filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.6));
+    object-fit: cover;
+    object-position: center 36%;
   }
 
   /* Slide 2: Mill processing silos and steaming cooked rice bowl */
