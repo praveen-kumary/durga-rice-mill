@@ -76,7 +76,7 @@
 .card-thumb-wrap {
   position: relative;
   width: 100%;
-  height: clamp(390px, 33vw, 450px);
+  height: clamp(430px, 36vw, 495px);
   overflow: hidden;
   background: #0e1114;
   display: flex;
@@ -546,7 +546,7 @@
 
 .detail-hero-img {
   width: 100%;
-  height: clamp(500px, 52vw, 660px);
+  height: clamp(550px, 57vw, 725px);
   object-fit: contain;
   padding: 6px;
   filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.18));
@@ -1032,9 +1032,9 @@
     margin-top: 8px;
   }
 
-  /* Increase bag sizes by +30% on mobile (height & width presence) */
+  /* Increase bag sizes (height & width presence) */
   .card-thumb-wrap {
-    height: clamp(345px, 80vw, 460px);
+    height: clamp(380px, 88vw, 505px);
     padding: 2px;
   }
 
@@ -1042,19 +1042,19 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
-    transform: scale(1.06);
+    transform: scale(1.08);
     filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.52));
   }
 
   .detail-main-image-frame {
-    height: clamp(380px, 78vw, 480px);
+    height: clamp(420px, 86vw, 530px);
   }
 
   .detail-hero-img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    transform: scale(1.06);
+    transform: scale(1.08);
     padding: 4px;
   }
 
@@ -1120,12 +1120,12 @@
   .grain-feat-card .feat-lbl {
     margin-top: 0;
   }
-  /* 30% boosted bag size on compact mobile */
+  /* Boosted bag size on compact mobile */
   .card-thumb-wrap {
-    height: 350px;
+    height: 385px;
   }
   .detail-main-image-frame {
-    height: 365px;
+    height: 400px;
   }
 }
 
